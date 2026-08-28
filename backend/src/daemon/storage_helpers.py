@@ -15,6 +15,9 @@ from backend.src.schemas.storage_resource import StorageResource
 
 logger = logging.getLogger(__name__)
 
+# Pre-compile regex for SKU extraction to avoid recompiling on every call.
+_SKU_PATTERN = re.compile(r"\b([PES]\d+)\b", re.IGNORECASE)
+
 
 def calculate_billing_period_days(csv_data: str) -> int:
     """
@@ -138,14 +141,17 @@ def extract_size_from_product_name(product_name: str) -> float:
     Returns:
         float: Size in GB, 0.0 if not found
     """
-    # Pattern to capture SKUs: P15, S4, E10, etc.
-    sku_pattern = r"\b([PES]\d+)\b"
-    matches = re.findall(sku_pattern, product_name.upper())
-
-    for match in matches:
-        if match in DISK_SKU_SIZE_MAPPING:
-            return float(DISK_SKU_SIZE_MAPPING[match])
-
+    # Uppercase once for regex matching and mapping lookup
+    product_name_upper = product_name.upper()
+    # Use search to stop at first match instead of finding all
+    match = _SKU_PATTERN.search(product_name_upper)
+    while match:
+        sku = match.group(1)
+        size = DISK_SKU_SIZE_MAPPING.get(sku)
+        if size is not None:
+            return float(size)
+        # Continue searching after the current match
+        match = _SKU_PATTERN.search(product_name_upper, match.end())
     return 0.0
 
 
