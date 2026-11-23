@@ -36,6 +36,8 @@ Carmen was created by a group of Amadeus engineers in response to the growing im
 
 Our primary goal is to empower engineering teams to understand the carbon footprint of their cloud applications, enabling them to make informed decisions and take meaningful action toward sustainability. By open-sourcing Carmen, we hope to help companies worldwide join the movement toward greener software.
 
+In 2026, Amadeus donated Carmen to the Green Software Foundation, assigning the copyright in the project to the Foundation. Carmen is now owned and managed by the GSF under the Software Standards Working Group, and remains MIT-licensed.
+
 ## Key Features
 
 ### Infrastructure Monitoring
