@@ -30,7 +30,7 @@ class FastAPIConfig(BaseSettings):
 
     API_STR: str = "/api"
     TITLE: str = "Carbon Engine API"
-    DESCRIPTION: str = "The Amadeus Software Carbon Footprint initiative"
+    DESCRIPTION: str = "Carbon Measurement Engine (Carmen), a Green Software Foundation project"
     DOCS_URL: str = f"{API_STR}/docs"
     REDOCS_URL: str = f"{API_STR}/redocs"
     OPENAPI_URL: str = f"{API_STR}/openapi"
