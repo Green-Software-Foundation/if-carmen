@@ -1,10 +1,13 @@
-<p align="center">
-  <img src="./docs/static/carmen-logo.svg" alt="Carmen logo" width="125" />
-</p>
+# Carbon Measurement Engine (Carmen)
 
-<p align="center">
-  <strong>Carbon Measurement Engine for Cloud Applications</strong>
-</p>
+<img src="./docs/static/carmen-logo.svg" alt="Carmen logo" width="125" />
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GSF Project](https://img.shields.io/badge/GSF-Software_Project-brightgreen)](https://greensoftware.foundation)
+
+> **Carbon Measurement Engine for Cloud Applications**
+
+Managed by the [Software Standards Working Group](https://github.com/Green-Software-Foundation/software-standards-wg) in the [Green Software Foundation](https://greensoftware.foundation).
 
 ---
 
@@ -17,11 +20,23 @@ Carmen (Carbon Measurement Engine) is an open-source tool that enables organizat
 
 Carmen integrates seamlessly with industry-standard tools like Kubernetes, Prometheus, and Kube State Metrics, and is built on top of the Impact Framework developed by the Green Software Foundation.
 
+### Appointments
+
+The project is led by:
+* [Florent Morel (Amadeus)](https://github.com/florent-morel)
+* [Robin Castellon (Amadeus)](https://github.com/robin-castellon)
+
+### Status
+
+**This is draft software only and has not been approved or adopted by the Green Software Foundation. this draft may not be relied upon for any purpose other than review of the current state of development.**
+
 ## Motivation
 
 Carmen was created by a group of Amadeus engineers in response to the growing importance of sustainability in the tech industry. As carbon emissions from digital infrastructure continue to rise, organizations need accurate tools to measure and reduce their environmental impact.
 
 Our primary goal is to empower engineering teams to understand the carbon footprint of their cloud applications, enabling them to make informed decisions and take meaningful action toward sustainability. By open-sourcing Carmen, we hope to help companies worldwide join the movement toward greener software.
+
+In 2026, Amadeus donated Carmen to the Green Software Foundation, assigning the copyright in the project to the Foundation. Carmen is now owned and managed by the GSF under the Software Standards Working Group, and remains MIT-licensed.
 
 ## Key Features
 
@@ -33,60 +48,24 @@ The Carmen daemon collects Virtual Machine usage data and processes it through t
 
 Carmen's API can be deployed as a sidecar container within your Kubernetes cluster. By connecting to your local Prometheus instance, Carmen retrieves CPU and memory usage metrics from your pods and computes detailed insights into the energy consumption and carbon footprint of your workloads over any specified time range.
 
-## Getting Started
+## Is Carmen the right tool for you?
 
-### Prerequisites
+Carmen is an **engineering tool**, built by engineers for engineers. It is for **optimisation and introspection** — identifying concrete parts of your infrastructure where you can reduce emissions. 
 
-Before installing Carmen, ensure you have the following dependencies:
+Carmen is probably **not** the right tool if you need:
+- Carbon figures for corporate/ESG reporting
+- Numbers for a press release or marketing material
+- Compliance or regulatory disclosures
 
-- Python 3.11 or higher
-- pip (Python package manager)
-- npm (Node package manager)
-
-### Installation
-
-#### Step 1: Install Impact Framework Dependencies
-
-First, install the Impact Framework and related plugins globally using npm:
-
-```bash
-npm install -g "@grnsft/if" "@grnsft/if-plugins" "@grnsft/if-unofficial-plugins"
-```
-
-#### Step 2: Install Carmen
-
-We recommend installing Carmen in a virtual environment to keep dependencies isolated.
-
-**For Linux/macOS:**
-
-```bash
-python -m venv .venv
-source ./.venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install amadeus-carmen
-```
-
-**For Windows:**
-
-```bash
-py -m venv .venv
-.\.venv\Scripts\activate
-.\.venv\Scripts\python.exe -m pip install --upgrade pip
-.\.venv\Scripts\python.exe -m pip install amadeus-carmen
-```
-
-### Quick Start
-
-To verify your installation, run the Carmen daemon example:
-
-```bash
-cd ./examples-data
-carbon-daemon
-```
-
-The carbon emissions report will be generated and saved in the `examples-data/output/` directory.
+Carmen **is** the right tool if you want to:
+- Know which services, VMs, or pods in your stack emit the most CO2
+- Compare components and prioritise reductions
+- Feed per-component carbon scores into your own FinOps dashboards or internal tooling
+- Give developers granular, actionable insights into the carbon footprint of their code
 
 ## Documentation
+
+### [Quick Start Guide](./docs/quick-start-guide.md)
 
 For more detailed information on using Carmen, refer to our comprehensive guides:
 
@@ -143,8 +122,3 @@ Carmen was developed and maintained by these outstanding people:
 - Thibaut CHASSIGNET
 - Xu HE
 - Yannick DEVAUX
----
-
-<p align="center">
-  Built with 💚 for a sustainable future
-</p>
